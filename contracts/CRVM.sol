@@ -8,19 +8,43 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
 
+/// @title Van Minion - Genesis collection of Christian Rex van Minnen
+/// @author (exp.table, ediv) === Chain/Saw
+
 /*
-
-
-
-
-
-
-
+*                                _       _             
+*      /\   /\__ _ _ __   /\/\ (_)_ __ (_) ___  _ __  
+*      \ \ / / _` | '_ \ /    \| | '_ \| |/ _ \| '_ \ 
+*      \ V / (_| | | | / /\/\ \ | | | | | (_) | | | |
+*      \_/ \__,_|_| |_\/    \/_|_| |_|_|\___/|_| |_|
+*                                                                             
+*    _______________                        _______________
+*   |  ___________  |     .-.     .-.      |  ___________  |
+*   | |           | |    .****. .****.     | |           | |
+*   | |   X   0   | |    .*****.*****.     | |   X   0   | |
+*   | |     -     | |     .*********.      | |     -     | |
+*   | |   \___/   | |      .*******.       | |   \___/   | |
+*   | |___________| |       .*****.        | |___________| |
+*   |_______________|        .***.         |_______________|
+*     _|________|_..........  .*............._|________|_
+*   / ********** \                         / ********** \
+*  /  ************ \                     /  ************ \
+* --------------------                   --------------------
+*                                                                                               
+* Van Minion, is the genesis collection of Christian Rex Van Minnen. The collection consists of
+* 51 exquisite, animated 1/1 works depicting Christian's psychedelic meditations on identity 
+* and self within society and beyond.
+* 
+* Each drop will also unlock 2,000 'blanks' for public minting. These blanks represent the 
+* underlying form or 'mother bust' from which all van Minions descend and will be redeemable 
+* for an opportunity to customize a Van Minion of your very own in the future. A new blank 
+* will be available with each drop for a total of 5 foundational shapes.
+*
+* Van Minion seeks to create a community centered around art where boundaries between 'creator' 
+* and 'community member' are blurred--where distinctions between patron and artist, physical 
+*  and digital, studio and metaverse, individual and collective become meaningless.
 */
 
-
-/// @title Van Minion - Genesis collection of Christian Rex van Minnen
-/// @author exp.table, ediv
 contract CRVM is ERC721, Ownable {
     using Strings for uint256;
     using BitMaps for BitMaps.BitMap;
