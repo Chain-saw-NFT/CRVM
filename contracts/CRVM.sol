@@ -8,8 +8,19 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
 
-/// @title Christian Rex van Minnen's NFT drop
-/// @author exp.table
+/*
+
+
+
+
+
+
+
+*/
+
+
+/// @title Van Minion - Genesis collection of Christian Rex van Minnen
+/// @author exp.table, ediv
 contract CRVM is ERC721, Ownable {
     using Strings for uint256;
     using BitMaps for BitMaps.BitMap;
@@ -24,7 +35,7 @@ contract CRVM is ERC721, Ownable {
     string private _baseTokenURI = "ipfs://";
     string private _ipfsCID;
     mapping (bytes32 => BitMaps.BitMap) private _claimed;
-    mapping (uint256 => uint256) private _leftBlanks;
+    mapping (uint256 => uint256) public _leftBlanks;
 
     constructor() ERC721("Van Minion", "CRVM") {}
 
@@ -51,14 +62,18 @@ contract CRVM is ERC721, Ownable {
     /// @notice Mints "core" tokens, 10 per drop, until all 5 drops are done
     function coreMint(address recipient, string calldata newCID, bytes32 newMerkleRoot) public onlyOwner {
         uint256 dropId = _dropId++;
-        require(dropId < 5);
-        _leftBlanks[dropId] = 2000;
-        isOpened = false;
-        _ipfsCID = newCID;
-        _merkleRoot = newMerkleRoot;
-        for(uint256 i = 10*dropId; i < 10*dropId + 10; i++) {
-            _safeMint(recipient, i);
-        }
+        require(dropId < 6, "Core tokens exhausted");
+        if (dropId < 5) {
+            _leftBlanks[dropId] = 2000;
+            isOpened = false;
+            _ipfsCID = newCID;
+            _merkleRoot = newMerkleRoot;
+            for(uint256 i = 10*dropId; i < 10*dropId + 10; i++) {
+                _safeMint(recipient, i);
+            }
+        } else {
+            _safeMint(recipient, 10*dropId);
+        }                
     }
 
     function _internalMint(uint256 dropId, address recipient, uint256 quantity) internal {
@@ -89,7 +104,8 @@ contract CRVM is ERC721, Ownable {
     }
 
     function tokenURI(uint256 tokenId) public override view returns (string memory) {
-        if (tokenId < 50) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        if (tokenId < 51) {
             return string(abi.encodePacked(_baseTokenURI, _ipfsCID, "/", tokenId.toString()));
         } else {
             uint256 blankId = (tokenId / _SEPARATOR) * _SEPARATOR; // produce 2000 | 4000 | ... | 10000
