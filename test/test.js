@@ -38,6 +38,7 @@ describe("CRVM", function () {
     expect(await crvm.balanceOf(owner.address)).to.equal(10);
     //tokenURI test
     expect(await crvm.tokenURI(9)).to.equal("ipfs://a/9");
+    expect(await crvm.tokenURI(8)).to.equal("ipfs://a/8");
   });
 
   it("Drop #0 - Can't buy into public sale with wrong price", async function() {
@@ -67,7 +68,7 @@ describe("CRVM", function () {
   });
 
   it("Drop #0 - Blanks sale from drop 0 sold out", async function() {
-    for(let i = 0 ; i < 199; i++) await crvm1.publicMint(0, MAX_MINTS, {value:getPrice(MAX_MINTS*MINT_PRICE)});
+    for(let i = 0; i < 398; i++) await crvm1.publicMint(0, MAX_MINTS, {value:getPrice(MAX_MINTS*MINT_PRICE)});
     await expect(crvm1.publicMint(0, MAX_MINTS, {value:getPrice(MAX_MINTS*MINT_PRICE)})).to.be.reverted;
   });
 
@@ -97,9 +98,9 @@ describe("CRVM", function () {
     expect(await crvm.tokenURI(4001)).to.equal("ipfs://b/4000");
   });
 
-  it("Owner cannot create more than 5 drops", async function() {
-    for(let i = 0; i < 3; i++) await crvm.coreMint(owner.address, "c", merkleRoot2);
-    await expect(crvm.coreMint(owner.address, "c", merkleRoot2)).to.be.reverted;
+  it("Owner cannot create more than 6 drops", async function() {
+    for(let i = 0; i < 4; i++) await crvm.coreMint(owner.address, "c", merkleRoot2);
+    await expect(crvm.coreMint(owner.address, "c", merkleRoot2)).to.be.reverted;    
   });
 
   it("Withdraw eth", async function() {
@@ -112,6 +113,11 @@ describe("CRVM", function () {
     await expect(crvm.burn(4000)).to.be.reverted;
     await crvm2.burn(4000);
     expect(await crvm.balanceOf(client2.address)).to.equal(1);
+  });
+
+  it("TokenURI should revert for non-existent token", async () => {
+    await expect(crvm.tokenURI(100_000))
+      .to.be.revertedWith("ERC721Metadata: URI query for nonexistent token");
   });
 
 
