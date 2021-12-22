@@ -18,7 +18,7 @@ contract CRVM is ERC721, Ownable {
     uint256 public constant PRICE = 0.1 ether;
 
     uint256 private constant _SEPARATOR = 2000;
-    uint256 private constant _MINT_TX_LIMIT = 5;
+    uint256 private constant _MINT_LIMIT = 5;
     uint256 private _dropId;
     bytes32 private _merkleRoot;
     string private _baseTokenURI = "ipfs://";
@@ -73,7 +73,7 @@ contract CRVM is ERC721, Ownable {
     /// @dev Users can buy it as soon as data is available, not according to isOpened
     function merkleMint(uint256 dropId, uint256 quantity, uint256 index, bytes32[] calldata proof) public payable {
         require(!_claimed[_merkleRoot].get(index),"Claimed already");
-        require(quantity <= _MINT_TX_LIMIT, "Limit of 5 per tx");
+        require(quantity <= _MINT_LIMIT, "Limit of 5 per tx");
         bytes32 node = keccak256(abi.encodePacked(msg.sender, index));
         require(MerkleProof.verify(proof, _merkleRoot, node), "Invalid proof");
         _claimed[_merkleRoot].set(index);
@@ -84,7 +84,7 @@ contract CRVM is ERC721, Ownable {
     function publicMint(uint256 dropId, uint256 quantity) public payable {
         require(isOpened, "Closed");
         require(quantity * PRICE == msg.value, "Incorrect eth amount");
-        require(quantity <= _MINT_TX_LIMIT, "Limit of 5 per tx");
+        require(quantity <= _MINT_LIMIT, "Limit of 5 per tx");
         _internalMint(dropId, msg.sender, quantity);
     }
 

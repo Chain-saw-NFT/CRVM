@@ -4,6 +4,8 @@ const provider = waffle.provider;
 const whitelist1 = require('./whitelist1.json');
 const whitelist2 = require('./whitelist2.json');
 
+const MAX_MINTS = 5;
+const MINT_PRICE = 0.1;
 
 function getPrice(price) {
   return (price * (10**18)).toString();
@@ -27,7 +29,7 @@ describe("CRVM", function () {
   });
 
   it("Drop #0 - Can't buy in public sale when closed", async function () {
-    await expect(crvm1.publicMint(0, 2, {value:getPrice(2*0.08)})).to.be.revertedWith("Closed");
+    await expect(crvm1.publicMint(0, 2, {value:getPrice(2*MINT_PRICE)})).to.be.revertedWith("Closed");
   });
 
   it("Drop #0 - Owner calls coreMint", async function() {
@@ -40,11 +42,11 @@ describe("CRVM", function () {
 
   it("Drop #0 - Can't buy into public sale with wrong price", async function() {
     await crvm.flipOpen();
-    await expect(crvm1.publicMint(0, 2, {value:getPrice(0.08)})).to.be.revertedWith("Incorrect eth amount");
+    await expect(crvm1.publicMint(0, 2, {value:getPrice(MINT_PRICE)})).to.be.revertedWith("Incorrect eth amount");
   });
 
   it("Drop #0 - Can buy into public sale", async function() {
-    await crvm1.publicMint(0, 2, {value:getPrice(2*0.08)});
+    await crvm1.publicMint(0, 2, {value:getPrice(2*MINT_PRICE)});
     //check balance
     expect(await crvm.balanceOf(client1.address)).to.equal(2);
     //check tokenURI
@@ -54,19 +56,19 @@ describe("CRVM", function () {
 
   it("Drop #0 - Can buy into merkle mint", async function() {
     const data = whitelist1[client1.address.toLowerCase()];
-    await crvm1.merkleMint(0, 8, data.index, data.proof, {value:getPrice(8*0.08)});
+    await crvm1.merkleMint(0, 4, data.index, data.proof, {value:getPrice(4*MINT_PRICE)});
     //check balance
-    expect(await crvm.balanceOf(client1.address)).to.equal(10);
+    expect(await crvm.balanceOf(client1.address)).to.equal(6);
   });
 
   it("Drop #0 - Cannot rebuy into merkle mint", async function() {
     const data = whitelist1[client1.address.toLowerCase()];
-    await expect(crvm1.merkleMint(0, 8, data.index, data.proof, {value:getPrice(8*0.08)})).to.be.revertedWith("Claimed already");
+    await expect(crvm1.merkleMint(0, 3, data.index, data.proof, {value:getPrice(3*MINT_PRICE)})).to.be.revertedWith("Claimed already");
   });
 
-  it("Drop #0 - Blanks sale frop drop 0 sold out", async function() {
-    for(let i = 0 ; i < 199; i++) await crvm1.publicMint(0, 10, {value:getPrice(10*0.08)});
-    await expect(crvm1.publicMint(0, 10, {value:getPrice(10*0.08)})).to.be.reverted;
+  it("Drop #0 - Blanks sale from drop 0 sold out", async function() {
+    for(let i = 0 ; i < 199; i++) await crvm1.publicMint(0, MAX_MINTS, {value:getPrice(MAX_MINTS*MINT_PRICE)});
+    await expect(crvm1.publicMint(0, MAX_MINTS, {value:getPrice(MAX_MINTS*MINT_PRICE)})).to.be.reverted;
   });
 
   it("Drop #1 - core mint", async function() {
@@ -82,12 +84,12 @@ describe("CRVM", function () {
 
   it("Drop #1 - cannot use previous merkle proof to mint", async function() {
     const data = whitelist1[client1.address.toLowerCase()];
-    await expect(crvm1.merkleMint(1, 8, data.index, data.proof, {value:getPrice(8*0.08)})).to.be.revertedWith("Invalid proof");
+    await expect(crvm1.merkleMint(1, 2, data.index, data.proof, {value:getPrice(2*MINT_PRICE)})).to.be.revertedWith("Invalid proof");
   });
 
   it("Drop #1 - public mint + tokenURI", async function() {
     await crvm.flipOpen();
-    await crvm2.publicMint(1, 2, {value:getPrice(2*0.08)});
+    await crvm2.publicMint(1, 2, {value:getPrice(2*MINT_PRICE)});
     //check balance
     expect(await crvm.balanceOf(client2.address)).to.equal(2);
     //check tokenURI
