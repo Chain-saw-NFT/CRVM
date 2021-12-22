@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.10;
+pragma solidity 0.8.4;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -15,9 +15,10 @@ contract CRVM is ERC721, Ownable {
     using BitMaps for BitMaps.BitMap;
 
     bool public isOpened;
-    uint256 public constant PRICE = 0.08 ether;
+    uint256 public constant PRICE = 0.1 ether;
 
     uint256 private constant _SEPARATOR = 2000;
+    uint256 private constant _MINT_TX_LIMIT = 5;
     uint256 private _dropId;
     bytes32 private _merkleRoot;
     string private _baseTokenURI = "ipfs://";
@@ -25,7 +26,7 @@ contract CRVM is ERC721, Ownable {
     mapping (bytes32 => BitMaps.BitMap) private _claimed;
     mapping (uint256 => uint256) private _leftBlanks;
 
-    constructor() ERC721("CRVM", "CRVM") {}
+    constructor() ERC721("Van Minion", "CRVM") {}
 
     function withdraw(address recipient) public onlyOwner {
         SafeTransferLib.safeTransferETH(recipient, address(this).balance);
@@ -72,7 +73,7 @@ contract CRVM is ERC721, Ownable {
     /// @dev Users can buy it as soon as data is available, not according to isOpened
     function merkleMint(uint256 dropId, uint256 quantity, uint256 index, bytes32[] calldata proof) public payable {
         require(!_claimed[_merkleRoot].get(index),"Claimed already");
-        require(quantity <= 10, "Limit of 10 per tx");
+        require(quantity <= _MINT_TX_LIMIT, "Limit of 5 per tx");
         bytes32 node = keccak256(abi.encodePacked(msg.sender, index));
         require(MerkleProof.verify(proof, _merkleRoot, node), "Invalid proof");
         _claimed[_merkleRoot].set(index);
@@ -83,7 +84,7 @@ contract CRVM is ERC721, Ownable {
     function publicMint(uint256 dropId, uint256 quantity) public payable {
         require(isOpened, "Closed");
         require(quantity * PRICE == msg.value, "Incorrect eth amount");
-        require(quantity <= 10, "Limit of 10 per tx");
+        require(quantity <= _MINT_TX_LIMIT, "Limit of 5 per tx");
         _internalMint(dropId, msg.sender, quantity);
     }
 
