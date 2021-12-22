@@ -1,0 +1,17 @@
+{
+  "name": "Van Minion",
+  "description": "Van Minion by Christian Rex Van Minnen - #1 of 51",
+  "tokenId": "17",
+  "external_url": "https://www.vanminion.fun/",  
+  "image": "https://ipfs.io/ipfs/<CID>",
+  "animation_url": "https://ipfs.io/ipfs/<CID>",  
+  "goodies": {     
+    "hifi_video": "https://ipfs.io/ipfs/<CID>"
+  },
+  "attributes": [
+    {
+      "trait_type": "Family",
+      "value": "Archival"
+    }    
+  ]
+}
