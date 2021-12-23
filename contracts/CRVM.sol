@@ -113,6 +113,7 @@ contract CRVM is ERC721, Ownable {
     function merkleMint(uint256 dropId, uint256 quantity, uint256 index, bytes32[] calldata proof) public payable {
         require(!_claimed[_merkleRoot].get(index),"Claimed already");
         require(quantity <= _MINT_LIMIT, "Limit of 5 per tx");
+        require(quantity * PRICE == msg.value, "Incorrect eth amount");
         bytes32 node = keccak256(abi.encodePacked(msg.sender, index));
         require(MerkleProof.verify(proof, _merkleRoot, node), "Invalid proof");
         _claimed[_merkleRoot].set(index);

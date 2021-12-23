@@ -57,6 +57,9 @@ describe("CRVM", function () {
 
   it("Drop #0 - Can buy into merkle mint", async function() {
     const data = whitelist1[client1.address.toLowerCase()];
+    // verify minter paid:
+    await expect(crvm1.merkleMint(0, 4, data.index, data.proof, {value:getPrice(10)})).to.be.reverted;
+    await expect(crvm1.merkleMint(0, 4, data.index, data.proof, {value:getPrice(.1)})).to.be.reverted;
     await crvm1.merkleMint(0, 4, data.index, data.proof, {value:getPrice(4*MINT_PRICE)});
     //check balance
     expect(await crvm.balanceOf(client1.address)).to.equal(6);
