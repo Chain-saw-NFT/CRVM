@@ -54,10 +54,10 @@ contract CRVM is ERC721, Ownable {
 
     uint256 private constant _SEPARATOR = 2000;
     uint256 private constant _MINT_LIMIT = 5;
-    uint256 private _dropId;
-    bytes32 private _merkleRoot;
-    string private _baseTokenURI = "ipfs://";
-    string private _ipfsCID;
+    uint256 public _dropId;
+    bytes32 public _merkleRoot;
+    string public _baseTokenURI = "ipfs://";
+    string public _ipfsCID;
     mapping (bytes32 => BitMaps.BitMap) private _claimed;
     mapping (uint256 => uint256) public _leftBlanks;
 
