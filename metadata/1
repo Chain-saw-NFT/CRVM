@@ -2,12 +2,12 @@
   "name": "Van Minion 01",
   "description": "Van Minion by Christian Rex Van Minnen - #1 of 51",
   "external_url": "https://www.vanminion.fun/",  
-  "image": "https://ipfs.io/ipfs/<CID>",
-  "animation_url": "https://ipfs.io/ipfs/<CID>",  
+  "image": "https://ipfs.io/ipfs/<CID>/still.png",
+  "animation_url": "https://ipfs.io/ipfs/<CID>/animation.mp4",  
   "goodies": {     
-    "hifi_video": "https://ipfs.io/ipfs/<CID>",
-    "hifi_still": "https://ipfs.io/ipfs/<CID>",
-    "pfp_avatar": "https://ipfs.io/ipfs/<CID>"
+    "hifi_video": "https://ipfs.io/ipfs/<CID>/video.mp4",
+    "hifi_still": "https://ipfs.io/ipfs/<CID>/still.png",
+    "pfp_avatar": "https://ipfs.io/ipfs/<CID>/pfp.png"
   },
   "attributes": [
     {
