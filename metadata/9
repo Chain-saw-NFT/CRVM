@@ -1,27 +1,27 @@
 {
-  "name": "I Salute You GMI",
-  "description": "Van Minion by Christian Rex Van Minnen - #9 of 51",
+  "name": "Fiery Entrance",
+  "description": "Van Minion by Christian Rex Van Minnen - #10 of 51",
   "external_url": "https://www.vanminion.fun/",  
-  "image": "https://ipfs.io/ipfs/<CID>",
-  "animation_url": "https://ipfs.io/ipfs/<CID>",  
+  "image": "https://ipfs.io/ipfs/QmbQgPJubAGBX8m1ZQPtfuU68kW8jiMP7z2LPHkF56ZCUQ/still.png",
+  "animation_url": "https://ipfs.io/ipfs/QmbQgPJubAGBX8m1ZQPtfuU68kW8jiMP7z2LPHkF56ZCUQ/animation.mp4",  
   "goodies": {     
-    "hifi_video": "https://ipfs.io/ipfs/<CID>",
-    "hifi_still": "https://ipfs.io/ipfs/<CID>",
-    "pfp_avatar": "https://ipfs.io/ipfs/<CID>"
+    "hifi_video": "https://ipfs.io/ipfs/QmbQgPJubAGBX8m1ZQPtfuU68kW8jiMP7z2LPHkF56ZCUQ/video.mp4",
+    "hifi_still": "https://ipfs.io/ipfs/QmbQgPJubAGBX8m1ZQPtfuU68kW8jiMP7z2LPHkF56ZCUQ/still.png",
+    "pfp_avatar": "https://ipfs.io/ipfs/QmbQgPJubAGBX8m1ZQPtfuU68kW8jiMP7z2LPHkF56ZCUQ/pfp.png"
   },
   "attributes": [
     {
       "trait_type": "Family",
-      "value": "Pattern - Tie Dye"
-    }
+      "value": "Pattern - Zig Zag"
+    },
     {
       "trait_type": "Animation",
       "value": "Epidermis"
-    }    
+    },    
     {
       "trait_type": "Clothing",
-      "value": "T-Shirt"
-    }       
+      "value": "Tank Top"
+    },       
     {
       "trait_type": "Gummy",
       "value": "Genesis"

@@ -1,27 +1,27 @@
 {
-  "name": "This Too Shall Pass",
-  "description": "Van Minion by Christian Rex Van Minnen - #6 of 51",
+  "name": "9 Generations",
+  "description": "Van Minion by Christian Rex Van Minnen - #7 of 51",
   "external_url": "https://www.vanminion.fun/",  
-  "image": "https://ipfs.io/ipfs/<CID>",
-  "animation_url": "https://ipfs.io/ipfs/<CID>",  
+  "image": "https://ipfs.io/ipfs/QmVLvVWpXN8PPeG8VgbNuNLfpWses8FxBvFRi1rxWNHMZw/still.png",
+  "animation_url": "https://ipfs.io/ipfs/QmVLvVWpXN8PPeG8VgbNuNLfpWses8FxBvFRi1rxWNHMZw/animation.mp4",  
   "goodies": {     
-    "hifi_video": "https://ipfs.io/ipfs/<CID>",
-    "hifi_still": "https://ipfs.io/ipfs/<CID>",
-    "pfp_avatar": "https://ipfs.io/ipfs/<CID>"
+    "hifi_video": "https://ipfs.io/ipfs/QmVLvVWpXN8PPeG8VgbNuNLfpWses8FxBvFRi1rxWNHMZw/video.mp4",
+    "hifi_still": "https://ipfs.io/ipfs/QmVLvVWpXN8PPeG8VgbNuNLfpWses8FxBvFRi1rxWNHMZw/still.png",
+    "pfp_avatar": "https://ipfs.io/ipfs/QmVLvVWpXN8PPeG8VgbNuNLfpWses8FxBvFRi1rxWNHMZw/pfp.png"
   },
   "attributes": [
     {
       "trait_type": "Family",
       "value": "Archival"
-    }
+    },
     {
       "trait_type": "Animation",
       "value": "Dermis"
-    }    
+    },    
     {
       "trait_type": "Clothing",
-      "value": "Sweater"
-    }       
+      "value": "None"
+    },       
     {
       "trait_type": "Gummy",
       "value": "Genesis"

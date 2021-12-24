@@ -1,27 +1,27 @@
 {
-  "name": "Van Minion 01",
-  "description": "Van Minion by Christian Rex Van Minnen - #1 of 51",
+  "name": "Spirit In Exile Bro Sup",
+  "description": "Van Minion by Christian Rex Van Minnen - #2 of 51",
   "external_url": "https://www.vanminion.fun/",  
-  "image": "https://ipfs.io/ipfs/QmXKbRKwN46rdPG1VgLWnQ2ZhTJHtGmN1JR7rt81UxmC66/still.png",
-  "animation_url": "https://ipfs.io/ipfs/QmXKbRKwN46rdPG1VgLWnQ2ZhTJHtGmN1JR7rt81UxmC66/animation.mp4",  
+  "image": "https://ipfs.io/ipfs/QmQDBPFaof1pQVHLs2VX8ChVnhQkqpHsbCq7Cv3SJKggn2/still.png",
+  "animation_url": "https://ipfs.io/ipfs/QmQDBPFaof1pQVHLs2VX8ChVnhQkqpHsbCq7Cv3SJKggn2/animation.mp4",  
   "goodies": {     
-    "hifi_video": "https://ipfs.io/ipfs/QmXKbRKwN46rdPG1VgLWnQ2ZhTJHtGmN1JR7rt81UxmC66/video.mp4",
-    "hifi_still": "https://ipfs.io/ipfs/QmXKbRKwN46rdPG1VgLWnQ2ZhTJHtGmN1JR7rt81UxmC66/still.png",
-    "pfp_avatar": "https://ipfs.io/ipfs/QmXKbRKwN46rdPG1VgLWnQ2ZhTJHtGmN1JR7rt81UxmC66/pfp.png"
+    "hifi_video": "https://ipfs.io/ipfs/QmQDBPFaof1pQVHLs2VX8ChVnhQkqpHsbCq7Cv3SJKggn2/video.mp4",
+    "hifi_still": "https://ipfs.io/ipfs/QmQDBPFaof1pQVHLs2VX8ChVnhQkqpHsbCq7Cv3SJKggn2/still.png",
+    "pfp_avatar": "https://ipfs.io/ipfs/QmQDBPFaof1pQVHLs2VX8ChVnhQkqpHsbCq7Cv3SJKggn2/pfp.png"
   },
   "attributes": [
     {
       "trait_type": "Family",
-      "value": "Mob"
-    }
+      "value": "Pattern - Camo"
+    },
     {
       "trait_type": "Animation",
-      "value": "Fully Articulated"
-    }    
+      "value": "Animated Epidermis"
+    },    
     {
       "trait_type": "Clothing",
-      "value": "None"
-    }       
+      "value": "Fur Stole"
+    },       
     {
       "trait_type": "Gummy",
       "value": "Genesis"

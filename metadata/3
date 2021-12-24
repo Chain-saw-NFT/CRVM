@@ -1,27 +1,27 @@
 {
-  "name": "Hyper-Vigilance",
-  "description": "Van Minion by Christian Rex Van Minnen - #3 of 51",
+  "name": "Hypnotic Aura",
+  "description": "Van Minion by Christian Rex Van Minnen - #4 of 51",
   "external_url": "https://www.vanminion.fun/",  
-  "image": "https://ipfs.io/ipfs/<CID>",
-  "animation_url": "https://ipfs.io/ipfs/<CID>",  
+  "image": "https://ipfs.io/ipfs/QmXse8iiJnfiuACH7KhMGD9uA1tfByZ8R3i4TsSzbQfibc/still.png",
+  "animation_url": "https://ipfs.io/ipfs/QmXse8iiJnfiuACH7KhMGD9uA1tfByZ8R3i4TsSzbQfibc/animation.mp4",  
   "goodies": {     
-    "hifi_video": "https://ipfs.io/ipfs/<CID>",
-    "hifi_still": "https://ipfs.io/ipfs/<CID>",
-    "pfp_avatar": "https://ipfs.io/ipfs/<CID>"
+    "hifi_video": "https://ipfs.io/ipfs/QmXse8iiJnfiuACH7KhMGD9uA1tfByZ8R3i4TsSzbQfibc/video.mp4",
+    "hifi_still": "https://ipfs.io/ipfs/QmXse8iiJnfiuACH7KhMGD9uA1tfByZ8R3i4TsSzbQfibc/still.png",
+    "pfp_avatar": "https://ipfs.io/ipfs/QmXse8iiJnfiuACH7KhMGD9uA1tfByZ8R3i4TsSzbQfibc/pfp.png"
   },
   "attributes": [
     {
       "trait_type": "Family",
-      "value": "Archival"
-    }
+      "value": "Monotype"
+    },
     {
       "trait_type": "Animation",
-      "value": "Dermis"
-    }    
+      "value": "Epidermis"
+    },    
     {
       "trait_type": "Clothing",
       "value": "None"
-    }       
+    },       
     {
       "trait_type": "Gummy",
       "value": "Genesis"
